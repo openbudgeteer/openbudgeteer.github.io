@@ -4,7 +4,7 @@ nav:
 theme:
   name: material
   icon:
-    logo: material/projector
+    logo: assets/icon.png
   features:
     - toc.integrate
     - content.code.copy
