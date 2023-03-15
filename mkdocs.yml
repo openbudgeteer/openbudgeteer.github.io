@@ -3,8 +3,7 @@ nav:
     - Home: index.md
 theme:
   name: material
-  icon:
-    logo: assets/icon.png
+  logo: assets/icon.png
   features:
     - toc.integrate
     - content.code.copy
