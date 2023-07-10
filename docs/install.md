@@ -39,14 +39,14 @@ docker run -d --name='openbudgeteer' \
 
     Below details only apply for `pre-release` and are planned to be released with Update `1.7`.
 
-```bash
-docker run -d --name='openbudgeteer' \
-    -e 'CONNECTION_PROVIDER'='SQLITE' \
-    -e 'CONNECTION_DATABASE'='/srv/openbudgeteer.db' \
-    -v '/my/local/path:/srv'  \
-    -p '6100:80/tcp' \
-    'axelander/openbudgeteer:pre-release'
-```
+    ```bash
+    docker run -d --name='openbudgeteer' \
+        -e 'CONNECTION_PROVIDER'='SQLITE' \
+        -e 'CONNECTION_DATABASE'='/srv/openbudgeteer.db' \
+        -v '/my/local/path:/srv'  \
+        -p '6100:80/tcp' \
+        'axelander/openbudgeteer:pre-release'
+    ```
 
 If you don't change the Port Mapping you can access the App with Port `80`. Otherwise like above example it can be accessed with Port `6100`
 
@@ -116,50 +116,50 @@ Please note that role and database `openbudgeteer` will be created with full aut
 
     PostgreSQL support is currently only available in `pre-release` and is planned to be released with Update `1.7`     
 
-```yml
-version: "3"
-
-networks:
-  app-global:
-    external: true
-  db-internal:
-
-
-services:
-  openbudgeteer:
-    image: axelander/openbudgeteer
-    container_name: openbudgeteer
-    ports:
-      - 8081:80
-    environment:
-      - CONNECTION_PROVIDER=postgres
-      - CONNECTION_SERVER=openbudgeteer-db
-      - CONNECTION_DATABASE=openbudgeteer
-      - CONNECTION_USER=openbudgeteer
-      - CONNECTION_PASSWORD=My$uP3rS3creTanDstr0ngP4ssw0rD!!!
-      - APPSETTINGS_CULTURE=en-US
-      - APPSETTINGS_THEME=solar
-    depends_on:
-      - db
+    ```yml
+    version: "3"
+    
     networks:
-      - app-global
-      - db-internal
-
-  db:
-    image: postgres:alpine
-    container_name: openbudgeteer-db
-    environment:
-      - POSTGRES_USER=openbudgeteer
-      - POSTGRES_PASSWORD=My$uP3rS3creTanDstr0ngP4ssw0rD!!!
-      - POSTGRES_DB=openbudgeteer
+      app-global:
+        external: true
+      db-internal:
+    
+    
+    services:
+      openbudgeteer:
+        image: axelander/openbudgeteer
+        container_name: openbudgeteer
+        ports:
+          - 8081:80
+        environment:
+          - CONNECTION_PROVIDER=postgres
+          - CONNECTION_SERVER=openbudgeteer-db
+          - CONNECTION_DATABASE=openbudgeteer
+          - CONNECTION_USER=openbudgeteer
+          - CONNECTION_PASSWORD=My$uP3rS3creTanDstr0ngP4ssw0rD!!!
+          - APPSETTINGS_CULTURE=en-US
+          - APPSETTINGS_THEME=solar
+        depends_on:
+          - db
+        networks:
+          - app-global
+          - db-internal
+    
+      db:
+        image: postgres:alpine
+        container_name: openbudgeteer-db
+        environment:
+          - POSTGRES_USER=openbudgeteer
+          - POSTGRES_PASSWORD=My$uP3rS3creTanDstr0ngP4ssw0rD!!!
+          - POSTGRES_DB=openbudgeteer
+        volumes:
+          - data:/var/lib/postgresql/data
+        networks:
+          - db-internal
+    
     volumes:
-      - data:/var/lib/postgresql/data
-    networks:
-      - db-internal
-
-volumes:
-  data:
-```
+      data:
+    ```
 
 ### Docker tags
 
