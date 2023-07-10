@@ -109,12 +109,12 @@ volumes:
   data:
 ```
 
-Below another example how to deploy OpenBudgeteer together with PostgreSQL Server.
-Please note that role and database `openbudgeteer` will be created with full authority on the `db` container on the first initialization of the database.
-
 !!! warning "Pre-release notice"
 
-    PostgreSQL support is currently only available in `pre-release` and is planned to be released with Update `1.7`     
+    PostgreSQL support is currently only available in `pre-release` and is planned to be released with Update `1.7`  
+
+    Below another example how to deploy OpenBudgeteer together with PostgreSQL Server.
+    Please note that role and database `openbudgeteer` will be created with full authority on the `db` container on the first initialization of the database.
 
     ```yml
     version: "3"
@@ -236,26 +236,29 @@ For MySQL:
   "AllowedHosts": "*"
 }
 ```
+!!! warning "Pre-release notice"
 
-For Postgres:
-
-```json
-{
-  "CONNECTION_PROVIDER": "postgresql",
-  "CONNECTION_DATABASE": "openbudgeteer",
-  "CONNECTION_SERVER": "192.168.178.100",
-  "CONNECTION_USER": "openbudgeteer",
-  "CONNECTION_PASSWORD": "openbudgeteer",
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft": "Warning",
-      "Microsoft.Hosting.Lifetime": "Information"
+    PostgreSQL support is currently only available in `pre-release` and is planned to be released with Update `1.7`  
+    
+    For Postgres:
+    
+    ```json
+    {
+      "CONNECTION_PROVIDER": "postgresql",
+      "CONNECTION_DATABASE": "openbudgeteer",
+      "CONNECTION_SERVER": "192.168.178.100",
+      "CONNECTION_USER": "openbudgeteer",
+      "CONNECTION_PASSWORD": "openbudgeteer",
+      "Logging": {
+        "LogLevel": {
+          "Default": "Information",
+          "Microsoft": "Warning",
+          "Microsoft.Hosting.Lifetime": "Information"
+        }
+      },
+      "AllowedHosts": "*"
     }
-  },
-  "AllowedHosts": "*"
-}
-```
+    ```
 
 For Sqlite:
 
