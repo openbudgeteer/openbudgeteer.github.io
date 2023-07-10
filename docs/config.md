@@ -8,14 +8,18 @@ Settings can be defined via Docker environment variables or via `appsettings.jso
 
 OpenBudgeteer requires a connection to a database which can be established using various variables. Currently, the following database servers are supported:
 
+!!! warning "Pre-release feature"
+
+    PostgreSQL support is currently only available in `pre-release` and planned to be released with Upddate `1.7`     
+
 | CONNECTION_PROVIDER | Database system                                      |
 |---------------------|------------------------------------------------------|
 | TEMPDB              | SQLite in a temp file                                |
 | SQLITE              | SQLite. Use CONNECTION_DATABASE to specify file name |
 | MYSQL               | Oracle MySQL                                         |
 | MARIADB             | MariaDB (FOSS MySQL fork)                            |
-| POSTGRES            | PostgreSQL (starting with Version 1.7)               |
-| POSTGRESQL          | PostgreSQL (starting with Version 1.7)               |
+| POSTGRES            | PostgreSQL                                           |
+| POSTGRESQL          | PostgreSQL                                           |
 
 Automated database initialization is only supported for MySQL, SQLite and MariaDB.
 

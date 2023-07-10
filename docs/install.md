@@ -100,6 +100,10 @@ volumes:
 Below another example how to deploy OpenBudgeteer together with PostgreSQL Server.
 Please note that role and database `openbudgeteer` will be created with full authority on the `db` container on the first initialization of the database.
 
+!!! warning "Pre-release feature"
+
+    PostgreSQL support is currently only available in `pre-release` and planned to be released with Upddate `1.7`     
+
 ```yml
 version: "3"
 
