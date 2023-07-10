@@ -1,4 +1,5 @@
 site_name: OpenBudgeteer Wiki
+site_url: https://openbudgeteer.github.io/Test/
 nav:
     - Home: index.md
 theme:
