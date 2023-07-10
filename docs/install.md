@@ -14,7 +14,7 @@ To start a container use a `docker run` command like below. Please note that use
 
 ```bash
 docker run -d --name='openbudgeteer' \
-    -e 'CONNECTION_PROVIDER'='MYSQL' \
+    -e 'CONNECTION_PROVIDER'='mysql' \
     -e 'CONNECTION_SERVER'='192.168.178.100' \
     -e 'CONNECTION_PORT'='3306' \
     -e 'CONNECTION_DATABASE'='MyOpenBudgeteerDb' \
@@ -29,11 +29,23 @@ Alternatively you can use a local `Sqlite` database using the below settings:
 
 ```bash
 docker run -d --name='openbudgeteer' \
+    -e 'CONNECTION_PROVIDER'='sqlite' \
+    -v '/my/local/path:/app/database'  \
+    -p '6100:80/tcp' \
+    'axelander/openbudgeteer:latest'
+```
+
+!!! warning "Pre-release notice"
+
+    Below details only apply for `pre-release` and are planned to be released with Update `1.7`.
+
+```bash
+docker run -d --name='openbudgeteer' \
     -e 'CONNECTION_PROVIDER'='SQLITE' \
     -e 'CONNECTION_DATABASE'='/srv/openbudgeteer.db' \
     -v '/my/local/path:/srv'  \
     -p '6100:80/tcp' \
-    'axelander/openbudgeteer:latest'
+    'axelander/openbudgeteer:pre-release'
 ```
 
 If you don't change the Port Mapping you can access the App with Port `80`. Otherwise like above example it can be accessed with Port `6100`
