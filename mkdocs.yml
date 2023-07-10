@@ -1,7 +1,10 @@
-site_name: OpenBudgeteer Wiki
-site_url: https://openbudgeteer.github.io/Test/
+site_name: OpenBudgeteer Documentation
 nav:
     - Home: index.md
+    - Quick Start: quick-start.md  
+    - Install: install.md
+    - Configuration: config.md
+    - How to use: how-to.md  
 theme:
   name: material
   logo: assets/icon.png
