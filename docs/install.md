@@ -102,7 +102,7 @@ Please note that role and database `openbudgeteer` will be created with full aut
 
 !!! warning "Pre-release feature"
 
-    PostgreSQL support is currently only available in `pre-release` and planned to be released with Upddate `1.7`     
+    PostgreSQL support is currently only available in `pre-release` and planned to be released with Update `1.7`     
 
 ```yml
 version: "3"

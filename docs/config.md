@@ -10,7 +10,7 @@ OpenBudgeteer requires a connection to a database which can be established using
 
 !!! warning "Pre-release feature"
 
-    PostgreSQL support is currently only available in `pre-release` and planned to be released with Upddate `1.7`     
+    PostgreSQL support is currently only available in `pre-release` and planned to be released with Update `1.7`     
 
 | CONNECTION_PROVIDER | Database system                                      |
 |---------------------|------------------------------------------------------|
