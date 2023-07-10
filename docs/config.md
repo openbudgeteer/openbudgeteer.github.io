@@ -8,9 +8,15 @@ Settings can be defined via Docker environment variables or via `appsettings.jso
 
 OpenBudgeteer requires a connection to a database which can be established using various variables. Currently, the following database servers are supported:
 
-!!! warning "Pre-release feature"
+| CONNECTION_PROVIDER | Database system                                      |
+|---------------------|------------------------------------------------------|
+| sqlite              | SQLite. Use CONNECTION_DATABASE to specify file name |
+| mysql               | Oracle MySQL, MariaDB (FOSS MySQL fork)              |
 
-    PostgreSQL support is currently only available in `pre-release` and planned to be released with Update `1.7`     
+!!! warning "Pre-release notice"
+
+    PostgreSQL and Sqlite temp file support is currently only available in `pre-release` and planned to be released with Update `1.7`.
+    Below are the future planned settings for `CONNECTION_PROVIDER`:
 
 | CONNECTION_PROVIDER | Database system                                      |
 |---------------------|------------------------------------------------------|
@@ -49,6 +55,12 @@ Automated database initialization is only supported for MySQL, SQLite and MariaD
 
 ### Additional comments
 
+- The usage of `CONNECTION_ROOT_PASSWORD` is optional in case user and database for MariaDB or MySQL are not existing and should be created by OpenBudgeteer.
+
+!!! warning "Pre-release notice"
+
+    Below comments only apply for `pre-release` and are planned to be released with Update `1.7`.
+
 - `CONNECTION_PROVIDER` is case-insensitive, so you can use for example `mysql` or `MYSQL`
 - Using MySQL, MariaDB or PostgreSQL parameter `CONNECTION_DATABASE` can have maximum lenght of 64 chars using below character sets:
     - `0-9`
@@ -56,7 +68,6 @@ Automated database initialization is only supported for MySQL, SQLite and MariaD
     - `A-Z`
     - `$`, `_`
     - `-` (not for PostgreSQL)
-- The usage of `CONNECTION_ROOT_PASSWORD` is optional in case user and database for MariaDB or MySQL are not existing and should be created by OpenBudgeteer.
 
 ### Database setup
 

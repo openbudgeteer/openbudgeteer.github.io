@@ -100,9 +100,9 @@ volumes:
 Below another example how to deploy OpenBudgeteer together with PostgreSQL Server.
 Please note that role and database `openbudgeteer` will be created with full authority on the `db` container on the first initialization of the database.
 
-!!! warning "Pre-release feature"
+!!! warning "Pre-release notice"
 
-    PostgreSQL support is currently only available in `pre-release` and planned to be released with Update `1.7`     
+    PostgreSQL support is currently only available in `pre-release` and is planned to be released with Update `1.7`     
 
 ```yml
 version: "3"
@@ -161,7 +161,11 @@ In case you want to stick to a specific version there are also tags for each rel
 
 If you don't want to use Docker you can also build the project on your own and deploy it on a web server like nginx.
 
-Install .NET SDK 7 for your respective Linux distribution. See [here](https://docs.microsoft.com/en-us/dotnet/core/install/linux) for more details. Below example is for Debian 11
+!!! warning "Pre-release notice"
+
+    `pre-release` uses .NET SDK 7, hence for below instructions replace `dotnet-sdk-6.0` with `dotnet-sdk-7.0` and `bin/Release/net6.0/linux-x64/publish` with `bin/Release/net7.0/linux-x64/publish`. 
+
+Install .NET SDK 6 for your respective Linux distribution. See [here](https://docs.microsoft.com/en-us/dotnet/core/install/linux) for more details. Below example is for Debian 11
 
 ```bash
 wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
@@ -171,7 +175,7 @@ rm packages-microsoft-prod.deb
 sudo apt-get update; \
   sudo apt-get install -y apt-transport-https && \
   sudo apt-get update && \
-  sudo apt-get install -y dotnet-sdk-7.0 
+  sudo apt-get install -y dotnet-sdk-6.0 
 ```
 
 Install nginx
@@ -194,7 +198,7 @@ dotnet publish -c Release --self-contained -r linux-x64
 Modify `appsettings.json` and enter credentials for a running database server, or use sqlite
 
 ```bash
-cd bin/Release/net7.0/linux-x64/publish
+cd bin/Release/net6.0/linux-x64/publish
 
 nano appsettings.json
 ```
