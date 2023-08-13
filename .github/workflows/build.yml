@@ -22,5 +22,8 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      - run: pip install mkdocs-material mkdocs-glightbox mike
-      - run: mike deploy --push -u ${{ github.ref_name }} latest
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          pip install mkdocs-material mkdocs-glightbox mike
+          mike deploy --push -u ${{ github.ref_name }} latest
