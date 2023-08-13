@@ -16,6 +16,11 @@ theme:
       primary: blue grey
       accent: teal
 
+extra:
+  version:
+    provider: mike
+    default: latest
+
 plugins:
   - search
   - glightbox:
